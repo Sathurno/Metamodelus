@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamodelo:Diagrama
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:metamodelo="metamodelo"
+    xsi:schemaLocation="metamodelo model/metamodelo.ecore">
+  <clase nombre="Grupo"
+      dispone="//@relaciones.0/@es.0 //@relaciones.1/@es.0 //@relaciones.1/@es.1">
+    <atributo
+        nombre="letra"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="Curso"
+      dispone="//@relaciones.0/@es.1"/>
+  <clase nombre="Ejemplo"/>
+  <relaciones
+      nombre="Es_de">
+    <es relaciona="//@clase.0">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </es>
+    <es relaciona="//@clase.1">
+      <asigna
+          valorMaximo="1"/>
+    </es>
+  </relaciones>
+  <relaciones
+      nombre="herencia"
+      esHerencia="true">
+    <es relaciona="//@clase.0"/>
+    <es relaciona="//@clase.0"/>
+  </relaciones>
+</metamodelo:Diagrama>
