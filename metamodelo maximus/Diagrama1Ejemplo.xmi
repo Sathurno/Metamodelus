@@ -6,7 +6,7 @@
     xmlns:metamodelo="metamodelo"
     xsi:schemaLocation="metamodelo model/metamodelo.ecore">
   <clase nombre="Grupo"
-      dispone="//@relaciones.0/@es.0 //@relaciones.1/@es.0 //@relaciones.1/@es.1">
+      dispone="//@relaciones.1/@es.0 //@relaciones.2/@es.1 //@relaciones.3/@es.0">
     <atributo
         nombre="letra"
         Tipo="cadena">
@@ -14,26 +14,167 @@
           valorMinimo="1"
           valorMaximo="1"/>
     </atributo>
+    <atributo
+        nombre="aula"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
   </clase>
   <clase nombre="Curso"
-      dispone="//@relaciones.0/@es.1"/>
-  <clase nombre="Ejemplo"/>
+      dispone="//@relaciones.2/@es.0">
+    <atributo
+        nombre="num">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+    <atributo
+        nombre="nivel">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="Profesor"
+      dispone="//@relaciones.1/@es.1">
+    <atributo
+        nombre="DNI">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+    <atributo
+        nombre="nombre"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+    <atributo
+        nombre="espec"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="Alumno"
+      hijo="//@clase.4 //@clase.5"
+      dispone="//@relaciones.3/@es.1">
+    <atributo
+        nombre="numero">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+    <atributo
+        nombre="nombre"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="A_comedor"
+      padre="//@clase.3">
+    <atributo
+        nombre="turno"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="A_Autobus"
+      padre="//@clase.3"
+      dispone="//@relaciones.0/@es.0">
+    <atributo
+        nombre="numero">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+    <atributo
+        nombre="parada">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase xsi:type="metamodelo:ClaseAsociacion"
+      nombre="Imparte"
+      relacion="//@relaciones.1">
+    <atributo
+        nombre="es_tutor"
+        Tipo="boolean">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
+  <clase nombre="Rueda"
+      dispone="//@relaciones.0/@es.1">
+    <atributo
+        nombre="rueda"
+        Tipo="cadena">
+      <compuesto
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </atributo>
+  </clase>
   <relaciones
-      nombre="Es_de">
+      nombre="autobus_rueda">
+    <es relaciona="//@clase.5"
+        Agregacion="true">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </es>
+    <es relaciona="//@clase.7">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="*"/>
+    </es>
+  </relaciones>
+  <relaciones
+      claseasociacion="//@clase.6"
+      nombre="Grupo_Profesor">
+    <es relaciona="//@clase.0">
+      <asigna
+          valorMaximo="*"/>
+    </es>
+    <es relaciona="//@clase.2">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="*"/>
+    </es>
+  </relaciones>
+  <relaciones
+      nombre="Curso_Grupo">
+    <es relaciona="//@clase.1">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="1"/>
+    </es>
+    <es relaciona="//@clase.0">
+      <asigna
+          valorMinimo="1"
+          valorMaximo="*"/>
+    </es>
+  </relaciones>
+  <relaciones
+      nombre="Grupo_Alumno">
     <es relaciona="//@clase.0">
       <asigna
           valorMinimo="1"
           valorMaximo="1"/>
     </es>
-    <es relaciona="//@clase.1">
+    <es relaciona="//@clase.3">
       <asigna
-          valorMaximo="1"/>
+          valorMinimo="1"
+          valorMaximo="*"/>
     </es>
-  </relaciones>
-  <relaciones
-      nombre="herencia"
-      esHerencia="true">
-    <es relaciona="//@clase.0"/>
-    <es relaciona="//@clase.0"/>
   </relaciones>
 </metamodelo:Diagrama>

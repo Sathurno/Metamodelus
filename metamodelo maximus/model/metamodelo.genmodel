@@ -10,12 +10,6 @@
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Metamodelo" basePackage="metamodelo maximus" disposableProviderFactory="true"
       ecorePackage="metamodelo.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodelo.ecore#//Tipos.1">
-      <genEnumLiterals ecoreEnumLiteral="metamodelo.ecore#//Tipos.1/entero"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodelo.ecore#//Tipos.1/cadena"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodelo.ecore#//Tipos.1/real"/>
-      <genEnumLiterals ecoreEnumLiteral="metamodelo.ecore#//Tipos.1/boolean"/>
-    </genEnums>
     <genDataTypes ecoreDataType="metamodelo.ecore#//Tipos"/>
     <genClasses ecoreClass="metamodelo.ecore#//Clase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Clase/nombre"/>
@@ -36,13 +30,12 @@
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodelo.ecore#//Diagrama/relaciones"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Diagrama/Nombre"/>
     </genClasses>
-    <genClasses ecoreClass="metamodelo.ecore#//TipoDato"/>
     <genClasses ecoreClass="metamodelo.ecore#//Relacion">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodelo.ecore#//Relacion/diagrama"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodelo.ecore#//Relacion/es"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Relacion/nombre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Relacion/esHerencia"/>
     </genClasses>
-    <genClasses ecoreClass="metamodelo.ecore#//Dependencia"/>
     <genClasses ecoreClass="metamodelo.ecore#//Cardinalidad">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Cardinalidad/valorMinimo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//Cardinalidad/valorMaximo"/>
@@ -50,7 +43,7 @@
     <genClasses ecoreClass="metamodelo.ecore#//RelacionFin">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodelo.ecore#//RelacionFin/relaciona"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodelo.ecore#//RelacionFin/asigna"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//RelacionFin/Rombo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodelo.ecore#//RelacionFin/Agregacion"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
